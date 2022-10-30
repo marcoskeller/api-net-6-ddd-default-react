@@ -1,25 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React, { useState, useEffect } from 'react';
+import api from './services/api';
 
-export default App;
+export default function App()
+{
+    const [mensagens, setMensagem] = useState([]);
+
+    useEffect( () => {
+      api.post('List').then(({data}) => {
+          setMensagem(data);
+      })
+    })
+
+    return (
+      <div className='App'>
+       <header className='App-header'>
+          {mensagens.map(
+            iten => (
+              <div key={iten.id}>
+                {iten.id} - {iten.titulo}
+              </div>
+            )            
+          )}
+       </header>
+      </div>
+    );
+}
