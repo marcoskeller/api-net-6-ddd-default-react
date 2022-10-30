@@ -25,7 +25,8 @@ namespace WebAPIs.Controllers
         }
 
 
-        [Authorize]
+        //[Authorize] - Retiramos a solicitaçao de autorização para comunicaçao com o FrontEnd
+        [AllowAnonymous]
         [Produces("application/json")]
         [HttpPost("/api/Add")]
         public async Task<List<Notifies>> Add(MessageViewModel message)
@@ -137,6 +138,9 @@ namespace WebAPIs.Controllers
         //Pegar usuário logado na aplicação para possíves usos
         private async Task<string> RetornarIdUsuarioLogado()
         {
+            //Iserindo o usuario apenas para demostrar o funcionamento do FrontEnd
+            return "0598d69f-05c7-490d-93e5-99dba4989574";
+
             if (User != null)
             {
                 var idUsuario = User.FindFirst("idUsuario");
