@@ -92,8 +92,9 @@ namespace WebAPIs.Controllers
         }
 
 
-        
-        [Authorize]
+
+        //[Authorize] - Retiramos a solicitaçao de autorização para comunicaçao com o FrontEnd
+        [AllowAnonymous]
         [Produces("application/json")]
         [HttpPost("/api/List")]
         public async Task<List<MessageViewModel>> List()
@@ -106,7 +107,8 @@ namespace WebAPIs.Controllers
 
 
         //Listando messagens com filtro      
-        [Authorize]
+        //[Authorize] - Retiramos a solicitaçao de autorização para comunicaçao com o FrontEnd
+        [AllowAnonymous]
         [Produces("application/json")]
         [HttpPost("/api/ListarMessageAtivas")]
         public async Task<List<MessageViewModel>> ListarMessageAtivas()
@@ -119,7 +121,8 @@ namespace WebAPIs.Controllers
 
 
         //Listando messagens com filtro
-        [Authorize]
+        //[Authorize] - Retiramos a solicitaçao de autorização para comunicaçao com o FrontEnd
+        [AllowAnonymous]
         [Produces("application/json")]
         [HttpPost("/api/ListarMessageInativas")]
         public async Task<List<MessageViewModel>> ListarMessageInativas()

@@ -109,8 +109,10 @@ if (app.Environment.IsDevelopment())
 /*Configurando o Cors - Que é liberação de acesso de quem poderá acessar nossa aplicação*/
 
 //Configurando o Cors para Desenvolvimento
-var devClient = "http://localhost:4200";
+//var devClient = "http://localhost:4200";
 
+//Auterando rota para utilização do FrontEnd com React
+var devClient = "http://localhost:3000";
 app.UseCors(x => x
 .AllowAnyOrigin()
 .AllowAnyMethod()
