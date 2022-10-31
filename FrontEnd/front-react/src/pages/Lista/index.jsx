@@ -17,7 +17,7 @@ export const Lista = () =>
     return (
       <div>      
         <div className='navbar'>
-          <Link className='btn-criar' to='/cadastro'>Criar Mensagem</Link>
+          <Link className='btn-cadastrar' to='/cadastro'>Criar Mensagem</Link>
         </div>
 
         
