@@ -64,6 +64,7 @@
   text-decoration: none !important;
   border: 0px solid;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .btn-voltar{
@@ -76,10 +77,60 @@
   font-weight: 600;
   text-decoration: none !important;
   border: 0px solid;
+  /* margin-bottom: 510px; */
+  margin-bottom: 500px;
+  cursor: pointer;
+}
+
+.btn-voltar-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 481px;
+  padding: 10px;
+  background: rgb(93, 93, 95);
+  border-radius: 6px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none !important;
+  border: 0px solid;
+  margin-top: 10px;
   margin-bottom: 510px;
 }
 
+.btn-editar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  padding: 8px;
+  border: 0px solid;
+  background: rgb(81, 81, 211);
+  border-radius: 6px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 5px;
+}
 
+.btn-deletar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  padding: 8px;
+  border: 0px solid;
+  background: rgb(227, 0, 0);
+  border-radius: 6px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 5px;
+
+}
 .seta-mensagem{
   width: 0px;
   height: 0px;

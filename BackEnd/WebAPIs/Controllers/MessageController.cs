@@ -26,7 +26,6 @@ namespace WebAPIs.Controllers
 
 
         //[Authorize] - Retiramos a solicitaçao de autorização para comunicaçao com o FrontEnd
-        [AllowAnonymous]
         [Produces("application/json")]
         [HttpPost("/api/Add")]
         public async Task<List<Notifies>> Add(MessageViewModel message)
@@ -44,7 +43,7 @@ namespace WebAPIs.Controllers
         }
 
 
-        [Authorize]
+        //[Authorize] - Retiramos a solicitaçao de autorização para comunicaçao com o FrontEnd
         [Produces("application/json")]
         [HttpPost("/api/Update")]
         public async Task<List<Notifies>> Update(MessageViewModel message)
@@ -61,7 +60,7 @@ namespace WebAPIs.Controllers
         }
 
 
-        [Authorize]
+        //[Authorize] - Retiramos a solicitaçao de autorização para comunicaçao com o FrontEnd
         [Produces("application/json")]
         [HttpPost("/api/Delete")]
         public async Task<List<Notifies>> Delete(MessageViewModel message)
@@ -73,24 +72,24 @@ namespace WebAPIs.Controllers
         }
 
 
-        [Authorize]
+        //[Authorize] - Retiramos a solicitaçao de autorização para comunicaçao com o FrontEnd
+        //[Authorize]
         [Produces("application/json")]
         [HttpPost("/api/GetEntityById")]
-        //public async Task<MessageViewModel> GetEntityById(Message message)
+        public async Task<MessageViewModel> GetEntityById(MessageViewModel messageVM)
+        {
+            var message = await _imessage.GetEntityById(messageVM.Id);
+            var messageMap = _imapper.Map<MessageViewModel>(message);
+            return messageMap;
+        }
+        //public async Task<MessageViewModel> GetEntityById(int id)
         //{
-        //    message = await _imessage.GetEntityById(message.Id);
+        //    var message = await _imessage.GetEntityById(id);
+
         //    var messageMap = _imapper.Map<MessageViewModel>(message);
 
         //    return messageMap;
         //}
-        public async Task<MessageViewModel> GetEntityById(int id)
-        {
-            var message = await _imessage.GetEntityById(id);
-
-            var messageMap = _imapper.Map<MessageViewModel>(message);
-
-            return messageMap;
-        }
 
 
 
@@ -109,7 +108,6 @@ namespace WebAPIs.Controllers
 
         //Listando messagens com filtro      
         //[Authorize] - Retiramos a solicitaçao de autorização para comunicaçao com o FrontEnd
-        [AllowAnonymous]
         [Produces("application/json")]
         [HttpPost("/api/ListarMessageAtivas")]
         public async Task<List<MessageViewModel>> ListarMessageAtivas()
@@ -123,7 +121,6 @@ namespace WebAPIs.Controllers
 
         //Listando messagens com filtro
         //[Authorize] - Retiramos a solicitaçao de autorização para comunicaçao com o FrontEnd
-        [AllowAnonymous]
         [Produces("application/json")]
         [HttpPost("/api/ListarMessageInativas")]
         public async Task<List<MessageViewModel>> ListarMessageInativas()

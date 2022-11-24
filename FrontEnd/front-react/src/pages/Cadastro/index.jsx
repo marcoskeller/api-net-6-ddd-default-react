@@ -1,5 +1,5 @@
 import '../../App.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
@@ -7,6 +7,7 @@ import api from '../../services/api';
 export const Cadastro = () => 
 {
     
+    let navigate = useNavigate();
 
     const [titulo, setTitulo] = useState([]);
 
@@ -27,6 +28,7 @@ export const Cadastro = () =>
         await api.post("/Add", data);
         alert("Mensagem cadastrada com sucesso!");
         setTitulo("");
+        navigate('/');
     };
 
 
@@ -41,15 +43,22 @@ export const Cadastro = () =>
                         onChange={(e) => setTitulo(e.target.value)}/>
                         
                         <div>
-                            <button className='btn-criar' type='submit'>Enviar</button> 
-                        </div>                               
+                            <button className='btn-criar' type='submit'>Enviar</button>                            
+                        </div>  
+                                            
                     </form>  
                 
+                    {/* <Link className='btn-voltar-link' to="/">Voltar</Link> */}
+                    
                     <div>
-                        <a href="http://localhost:3000/">
+                        {/* <a href="http://localhost:3000/">
                             <button className='btn-voltar'>Voltar</button>
-                        </a>
-                    </div>          
+                        </a> */}
+                        <Link className='btn-voltar-link' to="/">Voltar</Link>
+                    </div>  
+                    
+                      
+                            
                 </div>  
         </body>      
     ); 
